@@ -20,3 +20,18 @@ cursor = conn.cursor()
 cursor.execute("select * from voctable")
 ```
 
+### Set mongoDB Replica Sets
+```
+rs.initiate()
+rs.add("moneteam-X.csse.rose-hulman.edu:00000")
+
+# set arbiter
+rs.add("...",{arbiter:true})
+
+# check heart beat
+rs.status()
+
+# allow read on secondary
+rs.slaveOK()
+```
+
