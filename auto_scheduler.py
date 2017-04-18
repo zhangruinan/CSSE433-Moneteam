@@ -78,21 +78,21 @@ def con_shift_morning_ssv(model,a,b,c):
 def con_shift_evening_ssv(model,a,b,c):
     return getattr(model,"shift_evening_ssv")[a,b] >= model.x_ssv[a,b,c]
 model.conShiftMorningSSV = Constraint(model.ssv,model.days,
-                               RangeSet(openning_time,openning_time+4),
+                               RangeSet(openning_time,openning_time+5),
                                rule = con_shift_morning_ssv)
 model.conShiftEveningSSV = Constraint(model.ssv,model.days,
-                               RangeSet(closing_time-4,closing_time),
+                               RangeSet(closing_time-5,closing_time),
                                rule = con_shift_evening_ssv)
 
 def con_morning_shift_bts(model,a,b,c):
     return model.shift_morning_bts[a,b] >= model.x_bts[a,b,c]
 model.conMorningShiftBts = Constraint(model.bts,model.days,
-                                      RangeSet(openning_time,openning_time+4),
+                                      RangeSet(openning_time,openning_time+5),
                                       rule = con_morning_shift_bts)
 def con_evening_shift_bts(model,a,b,c):
     return model.shift_evening_bts[a,b] >= model.x_bts[a,b,c]
 model.conEveningShiftBts = Constraint(model.bts,model.days,
-                                      RangeSet(closing_time-4,closing_time),
+                                      RangeSet(closing_time-5,closing_time),
                                       rule = con_evening_shift_bts)
 
 def con_bts_morning_evening(model,a,b):
