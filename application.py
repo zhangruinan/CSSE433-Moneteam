@@ -25,6 +25,7 @@ def printhelp():
     print("To get a list of employees, type: \'get-emp\'.")
 
 def handle(command):
+    command = command.lower()
     args = command.split(" ")
     if args[0] == "add-emp":
         addEmp(args[1],args[2],args[3],args[4])
@@ -37,7 +38,11 @@ def handle(command):
 
 def addEmp(name,empid,age,wage):
     cursor = monetConn.cursor()
-    res = cursor.execute("insert into employee values (name,empid,age,wage) (\'%s\',%s,%s,%s)" % (name,empid,age,wage))
+    print("name=%s"%name)
+    print("empid=%s"%empid)
+    print("age=%s"%age)
+    print("wage=%s"%wage)
+    res = cursor.execute("insert into employee (name,empid,age,wage) values (\'%s\',%s,%s,%s);" % (name,empid,age,wage))
     if res == 1:
         print("The employee has been added.")
 
