@@ -15,7 +15,6 @@ minimal_server = 2
 hours_limit_per_week = 45
 hours_min_per_week = 35
 n_days_limit = 6
-#employees = bts+ssv
 
 # start model
 model = ConcreteModel()
