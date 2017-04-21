@@ -34,4 +34,4 @@ rs.status()
 # allow read on secondary
 rs.slaveOK()
 ```
-
+# mongod --fork --logpath
